@@ -117,7 +117,7 @@ def menu():
     print("4. Wyjście")
 
     try:
-        return int(input("Wybierz opcję (1-4): "))
+        return int(input("Wybierz opcje (1-4): "))
     except ValueError:
         return -1
 
@@ -125,14 +125,14 @@ def menu():
 def main():
     moj_plan = PlanZajec()
 
-    print("Witaj w Twoim osobistym asystencie planu zajęć!")
+    print("Witaj w Twoim osobistym asystencie planu zajec")
 
     while True:
         choice = menu()
 
         match choice:
             case 4:
-                print("Zamykam program. Dane są bezpieczne. Powodzenia!")
+                print("Zamykam program. Powodzenia na zajeciach")
                 break
 
             case -1:
@@ -144,7 +144,7 @@ def main():
                     dzien = input("Podaj dzień tygodnia (np. poniedziałek): ").strip()
                     moj_plan.wyswietl_plan(dzien, tydzien)
                 except ValueError:
-                    print("Numer tygodnia musi być liczbą!")
+                    print("Numer tygodnia musi być liczba")
 
             case 2:
                 print("\n--- DODAWANIE NOWYCH ZAJĘĆ ---")
@@ -157,7 +157,7 @@ def main():
                     tydzien_start = int(input("Tydzień rozpoczęcia (np. 1): ").strip())
                     tydzien_koniec = int(input("Tydzień zakończenia (np. 15): ").strip())
                 except ValueError:
-                    print("Tygodnie must być liczbami! Przerywam dodawanie.")
+                    print("Tygodnie musza byc liczbami")
                     continue
 
                 sala = input("Sala: ").strip()
@@ -167,10 +167,10 @@ def main():
 
             case 3:
                 print("\n--- USUWANIE ZAJĘĆ ---")
-                dzien = input("Z którego dnia chcesz usunąć zajęcia?: ").strip()
+                dzien = input("Z ktorego dnia chcesz usunac zajecia?: ").strip()
                 if moj_plan.wyswietl_plan(dzien)==1:
                     try:
-                        numer_do_usuniecia = int(input("\nPodaj numer zajęć do usunięcia: "))
+                        numer_do_usuniecia = int(input("\nPodaj numer zajec do usuniecia: "))
                         moj_plan.usun_zajecia(dzien, numer_do_usuniecia)
                     except ValueError:
                         print("Błąd: Musisz podać liczbę całkowitą!")
