@@ -40,8 +40,8 @@ class PlanZajec:
         dzien = dzien.lower()
         if dzien in self.harmonogram:
             try:
-                usuniete = self.harmonogram[dzien].pop(indeks - 1)
-                print(f"Pomyślnie usunięto zajęcia: {usuniete.nazwa}")
+                self.harmonogram[dzien].pop(indeks - 1)
+                print(f"Pomyślnie usunięto zajęcia")
             except IndexError:
                 print("Błąd: Nie ma zajęć o takim numerze na liście!")
         else:
@@ -56,7 +56,7 @@ class PlanZajec:
         print(f"\n--- PLAN ZAJĘĆ: {dzien.capitalize()} (Tydzień {numer_tygodnia if numer_tygodnia else 'Wszystkie'}) ---")
 
         znaleziono = False
-        # Poprawione wyświetlanie: pętla wypisze wszystkie przedmioty, a nie tylko pierwszy
+
         for indeks, zajecia in enumerate(self.harmonogram[dzien], start=1):
             if zajecia.czy_odbywaja_sie(numer_tygodnia):
                 print(f"{indeks}. {zajecia}")
