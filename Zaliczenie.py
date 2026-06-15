@@ -8,7 +8,7 @@ class Zajecia:
         self.tydzien_koniec = tydzien_koniec
 
     def czy_odbywaja_sie(self, numer_tygodnia):
-        if numer_tygodnia is None or (numer_tygodnia >= self.tydzien_start and numer_tygodnia <= self.tydzien_koniec):
+        if numer_tygodnia == None or (numer_tygodnia >= self.tydzien_start and numer_tygodnia <= self.tydzien_koniec):
             return True
         return False
 
@@ -18,9 +18,13 @@ class Zajecia:
 
 class PlanZajec:
     def __init__(self):
-        # Harmonogram startuje teraz zawsze pusty i żyje tylko w pamięci RAM
+    
         self.harmonogram = {
-            "poniedziałek": [], "wtorek": [], "środa": [], "czwartek": [], "piątek": []
+            "poniedziałek": [], 
+            "wtorek": [], 
+            "środa": [], 
+            "czwartek": [], 
+            "piątek": []
         }
 
     def dodaj_zajecia(self, dzien, zajecia):
@@ -128,7 +132,7 @@ def main():
             case 3:
                 print("\n--- USUWANIE ZAJĘĆ ---")
                 dzien = input("Z którego dnia chcesz usunąć zajęcia?: ").strip()
-                # Wyświetlamy plan bez filtracji tygodnia, żeby zobaczyć pełną listę do usunięcia
+        
                 if moj_plan.wyswietl_plan(dzien) == 1:
                     try:
                         numer_do_usuniecia = int(input("\nPodaj numer zajęć do usunięcia: "))
